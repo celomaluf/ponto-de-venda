@@ -1,0 +1,43 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<div class="page-header text-center">
+    <h2>Preencha os campos</h2>
+</div>
+
+<p ng-show="message.length" class="alert alert-info text-center">{{message}}</p>
+
+<form novalidate name="form" class="row" ng-submit="signUp()">
+	<div class="col-md-4"></div>
+	
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Usuário</label>
+            <input name="deLogin" class="form-control" ng-model="user.deLogin" 
+            	   required>
+            <span ng-show = "form.$submitted && form.deLogin.$error.required"
+                  class="form-control alert-danger">
+                Campo obrigatório
+            </span>
+        </div>        
+        <div class="form-group">
+            <label>Senha</label>
+            <input name="dePassword" type="password" class="form-control"
+           		   ng-model="user.dePassword" required>
+
+            <span ng-show = "form.$submitted && form.dePassword.$error.required"
+                class="form-control alert-danger">
+                Campo obrigatório
+            </span>
+
+        </div>        
+        <div class="form-group text-right">
+	        <button type="submit" class="btn btn-success" ng-disabled="form.$invalid">
+	            Salvar
+	        </button>
+	        <a href="#" class="btn btn-primary">Voltar</a>
+		        
+        </div>
+    </div>
+    
+    <div class="col-md-4"></div>    
+</form>

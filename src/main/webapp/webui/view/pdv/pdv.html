@@ -1,0 +1,77 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<div  class="page-header text-center">
+    <h2>Ponto de Venda</h2>
+</div>
+
+<p ng-show="message.length" class="alert alert-info text-center">{{message}}</p>
+
+<form novalidate  name="form" class="row" ng-submit="save()"> 	
+	<div class="col-md-3"></div>
+	
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Nome</label>
+            <input name="nmPDV" class="form-control"
+            	   ng-model="pdv.nmPDV" required>
+            <span ng-show="form.$submitted && form.nmPDV.$error.required"
+                  class="form-control alert-danger">
+                  Campo obrigatório
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Telefone</label>
+            <input name="nuPhone" class="form-control" 
+           		   ng-model="pdv.nuPhone" required>
+
+            <span ng-show="form.$submitted && form.nuPhone.$error.required"
+                  class="form-control alert-danger">
+                  Campo obrigatório
+            </span>
+
+        </div>
+
+        <div class="form-group ">
+            <label>Endereço</label>
+            <textarea name="deAddress" class="form-control"
+           		      ng-model="pdv.deAddress" required />
+
+            <span ng-show="form.$submitted && form.deAddress.$error.required"
+                  class="form-control alert-danger">
+                  Campo obrigatório
+            </span>
+        </div>
+        
+        
+ 		<div class="form-group ">
+            <label class="label-horario">Horário de abertura</label> 
+            <input  name="hourBegin" class="form-control input-horario" 
+           		   ng-model="pdv.hourBegin" placeholder="hora" >
+           		   &nbsp;:
+           		   
+			<input  name="minBegin" class="form-control input-horario"  
+           		   ng-model="pdv.minBegin" placeholder="min" >        		   
+        </div>
+        
+        <div class="form-group">
+            <label class="label-horario">Horário de fechamento</label> 
+            <input name="hourEnd" class="form-control input-horario" 
+           		   ng-model="pdv.hourEnd" placeholder="hora" >
+           		   &nbsp;:
+           		   
+			<input name="minEnd" class="form-control input-horario"
+           		   ng-model="pdv.minEnd" placeholder="min"  >           		   
+        </div>
+		
+        <div class="form-group text-right">
+	        <button type="submit" class="btn btn-success" ng-disabled="form.$invalid">
+	                Salvar
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="!pdv.cdPdv" ng-click="del(pdv.cdPdv)">
+	                Deletar
+	        </button>
+	        <a href="#/list" class="btn btn-primary">Voltar</a>		        
+        </div>
+    </div>
+                   
+    <div class="col-md-3"></div>    
+</form>

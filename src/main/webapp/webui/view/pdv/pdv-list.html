@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<div class="jumbotron">
+   <h1 class="text-center">Pontos de Vendas</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">
+    {{mensagem}}
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <a href="#/new" class="btn btn-success">Novo</a>
+                </span>
+                <input ng-model="filter" ng-model-options="{debounce: 500}"
+                       class="form-control" placeholder="Procurar...">
+            </div>
+         </form>
+     </div> 
+</div> 
+
+<div class="row margin">
+	<div class="list-group">
+		<a href="#/edit/{{pdv}}" class="list-group-item" ng-repeat="pdv in pdvList | filter : {nmPDV : filter}">
+			<h4 class="list-group-item-heading">{{pdv.nmPDV}}</h4>
+		    <h5 class="list-group-item-text">Horário de funcionamento: {{pdv.hourBegin}}:{{pdv.minBegin}} às {{pdv.hourEnd}}:{{pdv.minEnd}}</h5>
+		    <h5 class="list-group-item-text">Telefone: {{pdv.nuPhone}}</h5>
+		</a>
+	</div>
+</div>
+

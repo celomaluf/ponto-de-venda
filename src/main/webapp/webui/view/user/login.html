@@ -1,0 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<div class="page-header text-center">
+    <h2>Acesso ao PDV</h2>
+</div>	
+
+<p ng-show="message.length" class="alert alert-danger text-center">{{message}}</p>
+
+<form novalidate name="form" class="row" ng-submit="signIn()">
+ 	<div class="col-md-4 center"></div>
+    <div class="col-md-4 center">
+        <div class="form-group">
+            <label>Usuário</label>
+            <input name="deLogin" class="form-control" ng-model="user.deLogin" 
+            	   required>
+            <span ng-show = "form.$submitted && form.deLogin.$error.required"
+                  class="form-control alert-danger">
+                Campo obrigatório
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Senha</label>
+            <input name="dePassword" type="password" class="form-control"
+           		   ng-model="user.dePassword" required>
+
+            <span ng-show = "form.$submitted && form.dePassword.$error.required"
+                class="form-control alert-danger">
+                Campo obrigatório
+            </span>
+
+        </div>
+        <div class="form-group text-right">
+	        <button type="submit" class="btn btn-primary long" ng-disabled="form.$invalid">
+	            Entrar
+	        </button>
+        </div>
+        <div class="form-group text-right">	        
+	        <a href="#/user" class="btn btn-success long">Cadastre-se</a>
+        </div>
+        <hr>
+    </div>
+    <div class="col-md-4 center"></div>		   
+</form>
+
